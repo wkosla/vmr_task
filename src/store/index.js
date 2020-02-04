@@ -12,7 +12,7 @@ async function apiRequest(endpoint = '', page = '1') {
   const pageParam = page === '1' ? '' : `?page=${page}`;
 
   try {
-    return await Vue.axios.get(`${baseUrl}${endpoint}${page}`);
+    return await Vue.axios.get(`${baseUrl}${endpoint}${pageParam}`);
   } catch (err) {
     console.log(err);
   }
@@ -24,11 +24,13 @@ export default new Vuex.Store({
     users: [],
     pages: 0,
     currPage: 0,
+    userDetails: {},
   },
   getters: {
     getUsers: state => state.users,
     getPages: state => state.pages,
     getCurrPage: state => state.currPage,
+    getCurrUser: state => state.userDetails,
   },
   mutations: {
     SET_USERS: (state, arr) => {
@@ -40,6 +42,9 @@ export default new Vuex.Store({
     SET_CURRENT_PAGE: (state, num) => {
       state.page = num;
     },
+    SET_USER: (state, user) => {
+      state.userDetails = user;
+    },
   },
   actions: {
     GET_USERS: ({ commit }, page) => {
@@ -47,6 +52,11 @@ export default new Vuex.Store({
         commit('SET_USERS', data.data);
         commit('SET_PAGES', data.total);
         commit('SET_CURRENT_PAGE', data.page);
+      });
+    },
+    GET_USER: ({ commit }, id) => {
+      apiRequest(`/${id}`).then(({ data }) => {
+        commit('SET_USER', data.data);
       });
     },
   },
