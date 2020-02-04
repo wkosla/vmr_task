@@ -23,13 +23,17 @@ export default new Vuex.Store({
   state: {
     users: [],
     pages: 0,
-    currPage: 0,
+    currPage: 1,
+    perPage: 0,
+    total: 0,
     userDetails: {},
   },
   getters: {
     getUsers: state => state.users,
     getPages: state => state.pages,
     getCurrPage: state => state.currPage,
+    getPerPage: state => state.perPage,
+    getTotal: state => state.total,
     getCurrUser: state => state.userDetails,
   },
   mutations: {
@@ -45,6 +49,12 @@ export default new Vuex.Store({
     SET_USER: (state, user) => {
       state.userDetails = user;
     },
+    SET_PER_PAGE: (state, num) => {
+      state.perPage = num;
+    },
+    SET_TOTAL: (state, num) => {
+      state.total = num;
+    },
   },
   actions: {
     GET_USERS: ({ commit }, page) => {
@@ -52,6 +62,8 @@ export default new Vuex.Store({
         commit('SET_USERS', data.data);
         commit('SET_PAGES', data.total);
         commit('SET_CURRENT_PAGE', data.page);
+        commit('SET_PER_PAGE', data.per_page);
+        commit('SET_TOTAL', data.total);        
       });
     },
     GET_USER: ({ commit }, id) => {
