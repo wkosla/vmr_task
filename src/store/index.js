@@ -66,10 +66,12 @@ export default new Vuex.Store({
         commit('SET_TOTAL', data.total);
       });
     },
-    GET_USER: ({ commit }, id) => {
-      apiRequest(`/${id}`).then(({ data }) => {
-        commit('SET_USER', data.data);
-      });
+    GET_USER: ({ state, commit }, id) => {
+      if (state.userDetails.id !== id) {
+        apiRequest(`/${id}`).then(({ data }) => {
+          commit('SET_USER', data.data);
+        });
+      }
     },
   },
 });

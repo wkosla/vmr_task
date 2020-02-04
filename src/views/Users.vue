@@ -9,8 +9,10 @@
       <template v-slot:cell(avatar)="data">
         <b-img rounded fluid :src="data.item.avatar"></b-img>
       </template>
-      <template v-slot:cell(details)>
-        Details
+      <template v-slot:cell(details)="data">
+        <b-button :to="'/user/' + data.item.id" size="sm">
+          Details
+        </b-button>
       </template>
     </b-table>
     <b-pagination
