@@ -1,5 +1,7 @@
 # vmr
 
+Build using Vue CLI 3. Requires node.js (v >= 8) with npm installed.
+
 ## Project setup
 ```
 npm install
