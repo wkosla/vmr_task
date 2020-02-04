@@ -63,7 +63,7 @@ export default new Vuex.Store({
         commit('SET_PAGES', data.total);
         commit('SET_CURRENT_PAGE', data.page);
         commit('SET_PER_PAGE', data.per_page);
-        commit('SET_TOTAL', data.total);        
+        commit('SET_TOTAL', data.total);
       });
     },
     GET_USER: ({ commit }, id) => {

@@ -5,4 +5,8 @@
 </template>
 
 <style lang="scss">
+#app {
+  margin: 40px auto;
+  max-width: 1000px;
+}
 </style>

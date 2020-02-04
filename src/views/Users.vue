@@ -1,6 +1,11 @@
 <template>
   <div id="users">
-    <b-table hover :items="users" :fields="fields">
+    <b-table
+      hover
+      bordered
+      responsive
+      :items="users"
+      :fields="fields">
       <template v-slot:cell(avatar)="data">
         <b-img rounded fluid :src="data.item.avatar"></b-img>
       </template>
@@ -30,7 +35,7 @@ export default {
       'email',
       {
         key: 'details', label: '',
-      }
+      },
     ],
   }),
   computed: {
