@@ -22,7 +22,7 @@ async function apiRequest(endpoint = '', page = '1') {
 export default new Vuex.Store({
   state: {
     users: [],
-    pages: 0,
+    pages: 1,
     currPage: 1,
     perPage: 0,
     total: 0,
