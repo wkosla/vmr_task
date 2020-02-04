@@ -1,14 +1,21 @@
 <template>
   <div id="user">
-    <b-card
-      :title="user | nameFilter"
-      :sub-title="user.id | idFilter"
-      :img-src="user.avatar"
-      img-left
-    >
-      <b-button :href="'mailto:' + user.email">
-        {{ user.email }}
-      </b-button>
+    <b-card no-body>
+      <b-row no-gutters>
+        <b-col sm="3">
+          <b-card-img :src="user.avatar"></b-card-img>
+        </b-col>
+        <b-col sm="9">
+          <b-card-body
+            :title="user | nameFilter"
+            :sub-title="user.id | idFilter"
+          >
+            <b-button :href="'mailto:' + user.email">
+              {{ user.email }}
+            </b-button>
+          </b-card-body>
+        </b-col>
+      </b-row>
     </b-card>
 
     <b-button class="mt-3" @click="$router.go(-1)">
