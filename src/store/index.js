@@ -60,7 +60,7 @@ export default new Vuex.Store({
     GET_USERS: ({ commit }, page) => {
       apiRequest('', page).then(({ data }) => {
         commit('SET_USERS', data.data);
-        commit('SET_PAGES', data.total);
+        commit('SET_PAGES', data.total_pages);
         commit('SET_CURRENT_PAGE', data.page);
         commit('SET_PER_PAGE', data.per_page);
         commit('SET_TOTAL', data.total);

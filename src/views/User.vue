@@ -3,7 +3,7 @@
     <b-card no-body>
       <b-row no-gutters>
         <b-col sm="3">
-          <b-card-img :src="user.avatar"></b-card-img>
+          <b-card-img :src="user.avatar" v-if="user.avatar"></b-card-img>
         </b-col>
         <b-col sm="9">
           <b-card-body
