@@ -52,9 +52,6 @@ export default {
         this.$store.dispatch('GET_USERS', page);
       },
     },
-    pages() {
-      return this.$store.getters.getPages;
-    },
     perPage() {
       return this.$store.getters.getPerPage;
     },
@@ -63,7 +60,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('GET_USERS');
+    this.$store.dispatch('GET_USERS', this.currPage);
   },
 };
 </script>

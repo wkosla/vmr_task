@@ -44,7 +44,7 @@ export default new Vuex.Store({
       state.pages = num;
     },
     SET_CURRENT_PAGE: (state, num) => {
-      state.page = num;
+      state.currPage = num;
     },
     SET_USER: (state, user) => {
       state.userDetails = user;
