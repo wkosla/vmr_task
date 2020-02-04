@@ -28,16 +28,12 @@ export default {
   name: 'users',
   data: () => ({
     fields: [
-      'id',
-      {
-        key: 'avatar', label: 'Avatar',
-      },
-      'first_name',
-      'last_name',
-      'email',
-      {
-        key: 'details', label: '',
-      },
+      { key: 'id', sortable: true },
+      { key: 'avatar', label: 'Avatar' },
+      { key: 'first_name', sortable: true },
+      { key: 'last_name', sortable: true },
+      { key: 'email', sortable: true },
+      { key: 'details', label: '' },
     ],
   }),
   computed: {
